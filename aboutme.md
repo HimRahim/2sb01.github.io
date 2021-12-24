@@ -4,13 +4,9 @@ title: About me
 subtitle: Where you get to know me
 ---
 
-My name is Wanrahim Binwanrahimi
+My name is Wanrahim Binwanrahimi Student ID 6210110690
+I am 3rd year COE student at Prince of Songkla University
 
-- I rock a great mustache
-- I'm extremely loyal to my family
-
-What else do you need?
-
-### My story
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+contacts
+  -[email: 6210110690@psu.ac.th](mailto:6210110690@psu.ac.th)
+  -[github](https://github.com/HimRahim)
