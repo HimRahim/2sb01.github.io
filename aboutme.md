@@ -1,10 +1,10 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: Where you get to know me
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+My name is Wanrahim Binwanrahimi
 
 - I rock a great mustache
 - I'm extremely loyal to my family
