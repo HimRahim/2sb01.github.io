@@ -1,40 +1,93 @@
 ---
 layout: post
 title: Grid in CSS
-subtitle: CSS Flexbox คืออะไร + สอนวิธีใช้
+subtitle: ฝึกใช้ CSS Grid กันเถอะ
 tags: [flex, css]
 ---
 
-ใน CSS 2.1 เราจะใช้สิ่งที่เรียกว่า “Layout Mode” ในการกำหนดขนาด และจัดตำแหน่งของกล่องต่างๆ ซึ่ง layout mode นี้จะประกอบไปด้วย<br/>
-<br/>
-  - blockใช้จัดตำแหน่งเนื้อหาให้อยู่ในรูปแบบของ block
-  - inlineใช้จัดตำแหน่งเนื้อหาให้อยู่ในรูปแบบของ text
-  - tableใช้จัดตำแหน่งเนื้อหาให้อยู่ในรูปแบบตาราง
-  - positionใช้จัดตำแหน่งของ elements ต่างๆ ได้อย่างอิสระมากขึ้น
-  
-  ด้วยความซับซ้อนที่มากขึ้นของ web สมัยใหม่ การใช้ layout mode แบบเดิมๆ อาจทำให้เราเขียนโค้ดได้ไม่ค่อยสะดวกนัก CSS 3 จึงได้เพิ่ม layout mode แบบใหม่ ที่เรียกว่า “Flex Layout” เข้ามา โดย flex layout นี้เอง ที่จะช่วยให้กล่องต่างๆ มีความยืดหยุ่นมากขึ้น (Flexible Box หรือเรียกสั้นๆ ว่า Flexbox)
-flex layout จะมีความคล้ายคลึงกับ block layout เพียงแต่ว่ามันจะใช้ property บางอย่าง เช่น float ไม่ได้ ในทางกลับกัน มันจะมี property ใหม่ๆ เพิ่มเข้ามาให้เราใช้งาน โดยความสามารถหลักๆ ของ flex layout มีดังนี้
+กลับมาอีกครั้งกับหมวด CSS ครับ วันนี้ผมจะมาลองเล่น Grid ใน CSS ดูกัน ส่วนบล็อคนี้จะเป็นเครื่องมือช่วยจำให้ผมนะครับ เผื่อใครอยากลองก็สามารถทำตามและลองเล่นไปด้วยกันได้ครับ
 
-  - Orientationสามารถกำหนดแนวการเรียงของ flexbox ต่างๆ ได้ ไม่ว่าจะเป็น บนลงล่าง ล่างขึ้นบน ซ้ายไปขวา ขวาไปซ้าย
-  - Sizingสามารถกำหนดขนาดของ flexbox ต่างๆ ให้พอดีกับพื้นที่ว่างที่เหลืออยู่ได้อย่างอัตโนมัติ
-  - Orderingสามารถเลือกลำดับการแสดงผลของ flexbox ได้ ลำดับของ flexbox อาจแตกต่างกันไปในแต่ละขนาดของ viewport
-  - Alignmentสามารถกำหนด alignment ของ flexbox ต่างๆ ได้ ไม่ว่าจะเป็น ชิดซ้าย กึ่งกลาง หรือชิดขวา ทั้งในแนวนอนและแนวตั้ง
-  
-  จะใช้ Flexbox ต้องทำอย่างไร ?
-มาดูคำศัพท์เกี่ยวกับ flexbox ที่ต้องรู้กันก่อน
-  - Flex containerคือ html element ที่กำหนด property “display” ให้มีค่าเป็น “flex” หรือ “inline-flex”
-  - Flex itemหมายถึง html elements ใดๆ ก็ตาม ที่เป็น child ของ flex container
-  
-  ก่อนที่เราจะสามารถใช้ความสามารถต่างๆ flexbox ได้ เราจะต้องสร้าง “flex container” ขึ้นมาก่อน โดยปกติแล้ว เวลาเราจะใช้ layout mode กับ elements ไหน เราก็จะต้องใส่ property “display” เอาไว้ที่ elements นั้นๆ แต่การใช้ flexbox จะเปลี่ยนไปตรงที่ เราจะต้องกำหนด property “display” เอาไว้ที่ element ที่เป็น container แทน ลองดูตัวอย่างโค้ดต่อไปนี้
-  
-  ```
-    <div class="flex-container">
-      <div>flex item 1</div>
-      <div>flex item 2</div>
-      <div>flex item 3</div>
-    </div>
-    
-    .flex-container{
-    display: flex;
-    }
+เอาล่ะ มาเริ่มกันเลย !!!!
+
+เริ่มกันที่สร้าง html ขึ้นมาก่อน พร้อม CSS เริ่มต้นด้วย elements ประมาณนี้
+
 ```
+  body {
+    padding: 0;
+    margin: 0;
+    background-color: black;
+  }
+
+  .grid {
+    display: grid;
+  }
+
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: slategrey;
+    transition: all 0.3s;
+    cursor: pointer;
+    font-size: 3rem;
+  }
+
+  .card:hover {
+    box-shadow: rgba(2, 8, 20, 0.1) 0 0.255rem 1.1rem, rgba(2, 8, 20, 0.08) 0 0.255rem 1.1rem;
+    transform: translateY(-5px) scale(1.1);
+  }
+ ```
+ 
+ ```
+   <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="style.css" />
+      <title>Grid CSS</title>
+    </head>
+    <body>
+      <div class="grid">
+        <div class="card">1</div>
+        <div class="card">2</div>
+        <div class="card">3</div>
+        <div class="card">4</div>
+        <div class="card">5</div>
+        <div class="card">6</div>
+        <div class="card">7</div>
+        <div class="card">8</div>
+        <div class="card">9</div>
+        <div class="card">10</div>
+        <div class="card">11</div>
+        <div class="card">12</div>
+        <div class="card">13</div>
+        <div class="card">14</div>
+        <div class="card">15</div>
+        <div class="card">16</div>
+        <div class="card">17</div>
+        <div class="card">18</div>
+      </div>
+    </body>
+  </html>
+ ```
+ 
+## GAP
+gap ใน CSS ที่ใช้ร่วมกับ display: grid นั้นจะเป็นเหมือนการเว้นช่องไฟระหว่าง Element ที่อยู่ใน grid ตัวอย่างเช่น
+```
+  .grid {
+    display: grid;
+    gap: 1rem;
+  }
+```
+
+แปลว่าจะมีช่องว่างระหว่าง Element อยู่ 1 rem
+
+ผลที่ได้
+
+![preview picture](https://miro.medium.com/max/3000/1*dpz0XPVaO0OeSY5qhj7sNQ.png)
+
+[Read more](https://medium.com/@pozterz.jojo/%E0%B8%9D%E0%B8%B6%E0%B8%81%E0%B9%83%E0%B8%8A%E0%B9%89-css-grid-%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%96%E0%B8%AD%E0%B8%B0-6a18a05036da)
