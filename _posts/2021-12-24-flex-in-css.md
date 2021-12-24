@@ -5,7 +5,7 @@ subtitle: CSS Flexbox คืออะไร + สอนวิธีใช้
 tags: [flex, css]
 ---
 
-ใน CSS 2.1 เราจะใช้สิ่งที่เรียกว่า “Layout Mode” ในการกำหนดขนาด และจัดตำแหน่งของกล่องต่างๆ ซึ่ง layout mode นี้จะประกอบไปด้วย<br/>
+## ใน CSS 2.1 เราจะใช้สิ่งที่เรียกว่า “Layout Mode” ในการกำหนดขนาด และจัดตำแหน่งของกล่องต่างๆ ซึ่ง layout mode นี้จะประกอบไปด้วย<br/>
 <br/>
   - blockใช้จัดตำแหน่งเนื้อหาให้อยู่ในรูปแบบของ block
   - inlineใช้จัดตำแหน่งเนื้อหาให้อยู่ในรูปแบบของ text
@@ -38,3 +38,33 @@ flex layout จะมีความคล้ายคลึงกับ block l
     display: flex;
     }
 ```
+
+จากโค้ดด้านบน เรากำหนดให้ “.flex” เป็น “flex container” div ต่างๆ ที่อยู่ภายใน “.flex” ก็จะกลายเป็น “flex item” เพียงเท่านี้ เราก็จะสามารถใช้ความสามารถของ flexbox ได้แล้ว
+
+## Workshop — ลงมือใช้ Flexbox กันเลย !
+สมมติเราต้องการจะสร้าง layout ของหน้าเว็บแบบง่ายๆ ขึ้นมา โค้ด html ของเราจะหน้าตาประมาณนี้
+
+```
+   <div class="header">
+      <p>Header</p>
+  </div>
+  <div class="flex-container">
+      <div class="content">
+          <p>Main Content</p>
+      </div>
+      <div class="sidebar primary">
+          <p>Primary Sidebar</p>
+      </div>
+      <div class="sidebar secondary">
+          <p>Secondary Sidebar</p>
+      </div>
+  </div>
+  <div class="footer">
+      <p>Footer</p>
+  </div>
+  ```
+  
+  เมื่อลองพรีวิวดู ที่ viewport ขนาด 320x480 ก็จะได้หน้าตาแบบนี้
+  ![preview picture](https://miro.medium.com/max/400/0*2rohhyyDY5JDNrq-.png)
+  
+  [Read more](https://medium.com/siamhtml/css-flexbox-%E0%B8%84%E0%B8%B7%E0%B8%AD%E0%B8%AD%E0%B8%B0%E0%B9%84%E0%B8%A3-%E0%B8%AA%E0%B8%AD%E0%B8%99%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B9%83%E0%B8%8A%E0%B9%89-a2100b93efff)
